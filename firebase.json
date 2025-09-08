@@ -1,9 +1,5 @@
 {
   "hosting": {
-    "source": ".",
-    "backend": {
-      "id": "nextn",
-      "region": "us-central1"
-    }
+    "source": "."
   }
 }
