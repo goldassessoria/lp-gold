@@ -7,36 +7,21 @@ export function ContactForm() {
   return (
     <section id="contato" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <Card className="max-w-2xl mx-auto bg-card border-primary/20 shadow-xl overflow-hidden">
+        <Card className="max-w-2xl mx-auto bg-card border-primary/20 shadow-xl">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl md:text-4xl font-bold">Pronto para <span className="text-primary">aumentar as vendas</span>?</CardTitle>
             <CardDescription className="pt-2">Complete suas informações abaixo e um de nossos especialistas entrará em contato com você para uma análise gratuita da sua pizzaria e descobrir oportunidades reais de aumentar suas vendas.</CardDescription>
           </CardHeader>
-          <CardContent className="p-0">
-            {/*
-              PASSO FINAL:
-              Cole aqui o código de incorporação do seu formulário Tally.
-              Você o obtém clicando em "Publish" -> "Share" -> "Embed" -> "Standard" no seu formulário Tally.
-              O código se parecerá com um <iframe ...>.
-            */}
-            <div 
-              className="tally-embed-placeholder" 
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '500px',
-                border: '2px dashed hsl(var(--border))',
-                borderRadius: 'var(--radius)',
-                margin: '1.5rem',
-                textAlign: 'center',
-                padding: '1rem',
-                color: 'hsl(var(--muted-foreground))'
-              }}
-            >
-              Seu formulário Tally aparecerá aqui. Siga o tutorial para obter e colar o código de incorporação.
+          <CardContent>
+            {/* --- PASSO FINAL: COLE O CÓDIGO DO TALLY AQUI --- */}
+            {/* 1. Crie seu formulário em tally.so */}
+            {/* 2. Clique em "Publish" -> "Share" -> "Embed" -> "Standard" e copie o código. */}
+            {/* 3. Delete este div abaixo e cole o código do iframe do Tally no lugar dele. */}
+            <div className="h-96 w-full rounded-md border-2 border-dashed border-muted-foreground/30 bg-muted/20 flex items-center justify-center">
+              <p className="text-muted-foreground text-center">
+                Seu formulário Tally aparecerá aqui.
+              </p>
             </div>
-
           </CardContent>
         </Card>
       </div>
