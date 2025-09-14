@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto px-4 text-center text-muted-foreground">
         <div className="flex flex-col items-center gap-4">
             <Logo />
-            <p>© {new Date().getFullYear()} Gold Assessoria. Todos os direitos reservados.</p>
+            <p className="text-sm">© {new Date().getFullYear()} Gold Assessoria. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
