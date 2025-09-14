@@ -13,15 +13,7 @@ export function ContactForm() {
             <CardDescription className="pt-2">Complete suas informações abaixo e um de nossos especialistas entrará em contato com você para uma análise gratuita da sua pizzaria e descobrir oportunidades reais de aumentar suas vendas.</CardDescription>
           </CardHeader>
           <CardContent>
-            {/* --- PASSO FINAL: COLE O CÓDIGO DO TALLY AQUI --- */}
-            {/* 1. Crie seu formulário em tally.so */}
-            {/* 2. Clique em "Publish" -> "Share" -> "Embed" -> "Standard" e copie o código. */}
-            {/* 3. Delete este div abaixo e cole o código do iframe do Tally no lugar dele. */}
-            <div className="h-96 w-full rounded-md border-2 border-dashed border-muted-foreground/30 bg-muted/20 flex items-center justify-center">
-              <p className="text-muted-foreground text-center">
-                Seu formulário Tally aparecerá aqui.
-              </p>
-            </div>
+            {/* COLE SEU CÓDIGO DO TALLY AQUI */}
           </CardContent>
         </Card>
       </div>
