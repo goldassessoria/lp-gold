@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { saveLead } from "@/app/actions/saveLead";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -53,18 +54,31 @@ export function ContactForm() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true);
-        console.log("Dados do formulário:", values);
         
-        // Simula um envio para o backend
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        toast({
-            title: "Formulário enviado!",
-            description: "Seus dados foram registrados (simulação).",
-        });
-        
-        form.reset();
-        setIsSubmitting(false);
+        try {
+            const result = await saveLead(values);
+            if (result.success) {
+                toast({
+                    title: "Formulário enviado com sucesso!",
+                    description: "Obrigado! Entraremos em contato em breve.",
+                });
+                form.reset();
+            } else {
+                 toast({
+                    variant: "destructive",
+                    title: "Erro ao enviar formulário.",
+                    description: result.error || "Ocorreu um problema. Tente novamente.",
+                });
+            }
+        } catch (error) {
+             toast({
+                variant: "destructive",
+                title: "Erro no servidor.",
+                description: "Não foi possível conectar ao servidor. Tente novamente mais tarde.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
   return (
