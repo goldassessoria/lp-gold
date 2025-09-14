@@ -1,5 +1,4 @@
 
-import { initFirestore } from "@next-firebase/auth/server";
 import admin from "firebase-admin";
 
 // Variáveis de ambiente devem ser configuradas no seu ambiente de hospedagem (Vercel, etc.)
