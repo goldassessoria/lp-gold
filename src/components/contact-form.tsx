@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 
 export function ContactForm() {
   // SUBSTITUA COM SEU ENDPOINT DO FORMSpree
-  const formspreeEndpoint = "https://formspree.io/f/YOUR_UNIQUE_ID";
+  const formspreeEndpoint = "https://formspree.io/f/mkgvanby";
 
   return (
     <section id="contato" className="py-16 md:py-24">
