@@ -1,25 +1,16 @@
 
 import admin from "firebase-admin";
 
-// Variáveis de ambiente devem ser configuradas no seu ambiente de hospedagem (Vercel, etc.)
-const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
-const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-
-const credentials = {
-  clientEmail,
-  privateKey,
-  projectId,
-};
-
 export async function initializeFirebaseAdmin() {
   if (admin.apps.length > 0) {
     return admin.app();
   }
   
   try {
+    // Utiliza as Credenciais Padrão do Aplicativo.
+    // Isso funciona automaticamente em ambientes do Google Cloud como o Firebase Studio e App Hosting.
     const app = admin.initializeApp({
-      credential: admin.credential.cert(credentials as admin.ServiceAccount),
+      credential: admin.credential.applicationDefault(),
     });
     return app;
   } catch (error) {
