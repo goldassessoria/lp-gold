@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 
 export function ContactForm() {
-  // SUBSTITUA COM SEU ENDPOINT DO FORMSpree
+  // SUBSTITUA COM SEU ENDPOINT DO FORMSPREE
   const formspreeEndpoint = "https://formspree.io/f/mkgvanby";
 
   return (
