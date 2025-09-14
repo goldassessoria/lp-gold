@@ -8,7 +8,8 @@ export async function initializeFirebaseAdmin() {
   
   try {
     // Utiliza as Credenciais Padrão do Aplicativo.
-    // Isso funciona automaticamente em ambientes do Google Cloud como o Firebase Studio e App Hosting.
+    // Isso funciona automaticamente em ambientes do Google Cloud como o Firebase Studio e App Hosting,
+    // desde que as permissões IAM corretas estejam configuradas.
     const app = admin.initializeApp({
       credential: admin.credential.applicationDefault(),
     });
@@ -16,6 +17,6 @@ export async function initializeFirebaseAdmin() {
   } catch (error) {
     console.error("Firebase admin initialization error", error);
     // Lançar o erro novamente para que a função que chamou saiba que falhou
-    throw new Error("Failed to initialize Firebase Admin SDK.");
+    throw new Error("Failed to initialize Firebase Admin SDK. Check server logs and IAM permissions.");
   }
 }
