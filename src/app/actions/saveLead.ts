@@ -2,8 +2,7 @@
 "use server";
 
 import * as z from "zod";
-import { getFirestore } from "firebase-admin/firestore";
-import { initializeFirebaseAdmin } from "@/lib/firebase/admin";
+import { db } from "@/lib/firebase/admin";
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -17,9 +16,6 @@ type FormData = z.infer<typeof formSchema>;
 
 export async function saveLead(data: FormData): Promise<{ success: boolean; error?: string }> {
     try {
-        const app = await initializeFirebaseAdmin();
-        const db = getFirestore(app);
-
         const validatedData = formSchema.parse(data);
 
         await db.collection("leads").add({

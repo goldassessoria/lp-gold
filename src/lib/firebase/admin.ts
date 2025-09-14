@@ -1,22 +1,17 @@
 
 import admin from "firebase-admin";
+import { getFirestore } from "firebase-admin/firestore";
 
-export async function initializeFirebaseAdmin() {
-  if (admin.apps.length > 0) {
-    return admin.app();
-  }
-  
-  try {
-    // Utiliza as Credenciais Padrão do Aplicativo.
-    // Isso funciona automaticamente em ambientes do Google Cloud como o Firebase Studio e App Hosting,
-    // desde que as permissões IAM corretas estejam configuradas.
-    const app = admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-    });
-    return app;
-  } catch (error) {
-    console.error("Firebase admin initialization error", error);
-    // Lançar o erro novamente para que a função que chamou saiba que falhou
-    throw new Error("Failed to initialize Firebase Admin SDK. Check server logs and IAM permissions.");
-  }
+const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS
+  ? JSON.parse(Buffer.from(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'base64').toString('utf-8'))
+  : undefined;
+
+if (admin.apps.length === 0) {
+  admin.initializeApp({
+    credential: serviceAccount ? admin.credential.cert(serviceAccount) : admin.credential.applicationDefault(),
+  });
 }
+
+const db = getFirestore();
+
+export { db };
