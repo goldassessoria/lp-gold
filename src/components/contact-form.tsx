@@ -4,14 +4,16 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
+// URL para o script de embed do Tally
 const TALLY_EMBED_URL = "https://tally.so/widgets/embed.js";
 
 export function ContactForm() {
   useEffect(() => {
-    // Procura por um script existente com a mesma URL para não duplicar
+    // Verifica se o script já não foi injetado na página para evitar duplicatas
     if (document.querySelector(`script[src="${TALLY_EMBED_URL}"]`)) {
-      // Se já existe, força o Tally a recarregar os formulários na página
-      // @ts-ignore - Tally is loaded on the window object
+      // Se já existe, apenas pede para o Tally recarregar os embeds.
+      // A anotação @ts-ignore é usada porque 'Tally' é adicionado ao objeto 'window' pelo script.
+      // @ts-ignore
       if (window.Tally) {
         // @ts-ignore
         window.Tally.loadEmbeds();
@@ -19,12 +21,12 @@ export function ContactForm() {
       return;
     }
 
-    // Se o script não existe, cria um novo
+    // Se o script não existe, cria um novo elemento script
     const script = document.createElement("script");
     script.src = TALLY_EMBED_URL;
     script.async = true;
     script.onload = () => {
-      // Quando o script carregar, inicializa os formulários
+      // Callback para quando o script carregar com sucesso
       // @ts-ignore
       if (window.Tally) {
         // @ts-ignore
@@ -32,20 +34,22 @@ export function ContactForm() {
       }
     };
     script.onerror = () => {
+      // Callback para caso o script falhe em carregar
       console.error("Failed to load Tally embed script.");
     };
 
-    // Adiciona o script ao corpo do documento
+    // Adiciona o script ao final do corpo do documento
     document.body.appendChild(script);
 
-    // Função de limpeza para remover o script quando o componente for desmontado
+    // Função de limpeza: remove o script quando o componente for "desmontado" (ex: mudar de página)
+    // Isso é uma boa prática para evitar vazamentos de memória em aplicações complexas.
     return () => {
       const existingScript = document.querySelector(`script[src="${TALLY_EMBED_URL}"]`);
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
     };
-  }, []);
+  }, []); // O array vazio [] significa que este efeito só roda uma vez, quando o componente é montado.
 
   return (
     <section id="contato" className="py-16 md:py-24">
