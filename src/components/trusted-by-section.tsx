@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -28,6 +29,12 @@ const clients = [
   {
     name: "Cliente 4",
     logo: "https://i.imgur.com/5gnbR5A.png",
+    width: 200,
+    height: 80,
+  },
+  {
+    name: "Cliente 5",
+    logo: "https://i.imgur.com/aHXLs6W.png",
     width: 200,
     height: 80,
   },
