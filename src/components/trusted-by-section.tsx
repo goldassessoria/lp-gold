@@ -38,10 +38,10 @@ const clients = [
     height: 80,
   },
   {
-    name: "Cliente 5",
-    logo: "https://i.imgur.com/LiwvJGt.png",
+    name: "Cliente 1",
+    logo: "https://i.imgur.com/Q3IMhyA.png",
     width: 200,
-    height: 80,
+    height: 80
   }
 ];
 
