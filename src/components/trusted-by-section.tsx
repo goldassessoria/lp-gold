@@ -20,12 +20,6 @@ const clients = [
     height: 80,
   },
   {
-    name: "Cliente 2",
-    logo: "https://i.imgur.com/aHXLs6W.png",
-    width: 200,
-    height: 80,
-  },
-  {
     name: "Cliente 3",
     logo: "https://i.imgur.com/dUQ0tCC.png",
     width: 200,
@@ -84,6 +78,7 @@ export function TrustedBySection() {
                         alt={client.name}
                         width={client.width}
                         height={client.height}
+                        priority={false}
                         className="object-contain h-32 w-auto"
                       />
                     </div>
@@ -91,8 +86,8 @@ export function TrustedBySection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0 md:-left-12 bg-background/50 hover:bg-background/75" />
-          <CarouselNext className="right-0 md:-right-12 bg-background/50 hover:bg-background/75" />
+          <CarouselPrevious aria-label="Slide anterior" className="left-0 md:-left-12 bg-background/50 hover:bg-background/75" />
+          <CarouselNext aria-label="Próximo slide" className="right-0 md:-right-12 bg-background/50 hover:bg-background/75" />
         </Carousel>
          <div className="py-2 text-center text-sm text-muted-foreground">
             <div className="flex justify-center gap-2 mt-4">
@@ -101,7 +96,7 @@ export function TrustedBySection() {
                         key={i}
                         onClick={() => api?.scrollTo(i)}
                         className={`h-2 w-2 rounded-full ${current === i + 1 ? 'bg-primary' : 'bg-muted'}`}
-                        aria-label={`Go to slide ${i + 1}`}
+                        aria-label={`Ir para o slide ${i + 1}`}
                     />
                 ))}
             </div>
