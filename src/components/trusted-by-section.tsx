@@ -14,6 +14,12 @@ import React from 'react';
 
 const clients = [
   {
+    name: "Cliente 1",
+    logo: "https://i.imgur.com/Q3IMhyA.png",
+    width: 200,
+    height: 80,
+  },
+  {
     name: "Cliente 2",
     logo: "https://i.imgur.com/aHXLs6W.png",
     width: 200,
