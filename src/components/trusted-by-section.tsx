@@ -37,12 +37,6 @@ const clients = [
     width: 200,
     height: 80,
   },
-  {
-    name: "Cliente 1",
-    logo: "https://i.imgur.com/Q3IMhyA.png",
-    width: 200,
-    height: 80
-  }
 ];
 
 export function TrustedBySection() {
