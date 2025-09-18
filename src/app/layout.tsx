@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
-import { FirebaseAnalytics } from '@/components/firebase-analytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,6 +37,19 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-70ZFR61DQD"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-70ZFR61DQD');
+          `}
+        </Script>
       </head>
       <body className="font-body antialiased">
         <noscript>
@@ -47,7 +59,6 @@ export default function RootLayout({
         </noscript>
         {children}
         <Toaster />
-        <FirebaseAnalytics />
       </body>
     </html>
   );
