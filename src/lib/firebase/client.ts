@@ -6,6 +6,7 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 const firebaseConfig = {
   apiKey: "AIzaSyDhnXgGiAWMQHPR1bAvAqO_eg0dqJvTdHs",
   authDomain: "gold-assessoria-2.firebaseapp.com",
+  databaseURL: "https://gold-assessoria-2-default-rtdb.firebaseio.com",
   projectId: "gold-assessoria-2",
   storageBucket: "gold-assessoria-2.firebasestorage.app",
   messagingSenderId: "420374479890",
