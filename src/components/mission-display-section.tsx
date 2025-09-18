@@ -4,6 +4,7 @@ const diagnosisBenefits = [
   "Uma análise completa da sua presença digital (Instagram, Facebook, Cardápio Digital, iFood, WhatsApp, Google).",
   "Identificação dos 3 principais erros que estão fazendo você perder clientes.",
   "Um plano de ação inicial para aumentar pedidos e faturamento já no próximo mês.",
+  "Em até 48h você receberá um PDF com esse plano de ação para começar a colocar em prática.",
 ];
 
 export function MissionDisplaySection() {
