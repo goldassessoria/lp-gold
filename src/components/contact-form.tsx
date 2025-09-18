@@ -58,6 +58,7 @@ export function ContactForm() {
           <CardHeader className="text-center">
             <CardTitle className="text-3xl md:text-4xl font-bold">Pronto para <span className="text-primary">aumentar as vendas</span>?</CardTitle>
             <CardDescription className="pt-2">Complete suas informações abaixo e um de nossos especialistas entrará em contato com você para uma análise gratuita da sua pizzaria e descobrir oportunidades reais de aumentar suas vendas.</CardDescription>
+            <p className="pt-4 font-bold text-primary animate-pulse">ATENÇÃO! Restam poucas vagas para o diagnóstico gratuito. Preencha antes que acabe.</p>
           </CardHeader>
           <CardContent>
             {/* 
