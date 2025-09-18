@@ -37,19 +37,6 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-70ZFR61DQD"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-70ZFR61DQD');
-          `}
-        </Script>
       </head>
       <body className="font-body antialiased">
         <noscript>
