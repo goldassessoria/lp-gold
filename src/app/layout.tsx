@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
+import { FirebaseAnalytics } from '@/components/firebase-analytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -46,6 +47,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <Toaster />
+        <FirebaseAnalytics />
       </body>
     </html>
   );
