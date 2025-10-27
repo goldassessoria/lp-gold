@@ -62,7 +62,7 @@ export function BenefitHighlightingSection() {
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-6 bg-card rounded-lg shadow-md border border-transparent hover:border-primary/50 transition-colors duration-300">
+            <div key={index} className="flex flex-col items-center text-center p-6 bg-card rounded-lg shadow-md border border-transparent transition-colors duration-300">
               <div className="mb-4 p-4 bg-primary/10 rounded-full">
                 <benefit.icon className="h-8 w-8 text-primary" />
               </div>
