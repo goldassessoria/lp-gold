@@ -23,7 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`dark ${inter.variable}`}>
-      <head>
+      <head />
+      <body className="font-body antialiased">
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -38,8 +39,6 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-      </head>
-      <body className="font-body antialiased">
         <noscript>
           <img height="1" width="1" style={{display: 'none'}}
             src="https://www.facebook.com/tr?id=1390088832135868&ev=PageView&noscript=1"
